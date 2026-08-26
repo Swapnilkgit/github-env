@@ -4,9 +4,15 @@ on:
     branches:
       - master
       - dev
+env: 
+  MANGODB_DB_NAME: gha-db
 jobs:
   test:
-    environment: testing
+  env:
+    MONGODB_CLUSTER_ADDRESS: github-action.utozkzh.mongodb.net
+    MONGODB_USERNAME: swapnilk2909_db_user
+    MONGODB_PASSWORD: aq8zLjf8y9BwVCW8
+    PORT: 3306
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -19,15 +25,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run server
-        run: npm start & npx wait-on http://127.0.0.1:XYZ
+        run: npm start & npx wait-on http://127.0.0.1:$PORT
       - name: Run tests
         run: npm test
       - name: Output information
-        run: echo "..."
+        run: echo "MONGODB_USERNAME: ${{ (env.MONGODB_USERNAME) }}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Output information
         run: |        
-          echo "..."
+          echo "MONGODB_USERNAME: ${{ (env.MONGODB_USERNAME) }}"
+          echo "MANGODB_DB_NAME: ${{ env.MANGODB_DB_NAME }}"
