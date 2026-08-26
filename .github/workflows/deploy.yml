@@ -8,11 +8,11 @@ env:
   MANGODB_DB_NAME: gha-db
 jobs:
   test:
-  env:
-    MONGODB_CLUSTER_ADDRESS: github-action.utozkzh.mongodb.net
-    MONGODB_USERNAME: swapnilk2909_db_user
-    MONGODB_PASSWORD: aq8zLjf8y9BwVCW8
-    PORT: 3306
+    env:
+      MONGODB_CLUSTER_ADDRESS: github-action.utozkzh.mongodb.net
+      MONGODB_USERNAME: swapnilk2909_db_user
+      MONGODB_PASSWORD: aq8zLjf8y9BwVCW8
+      PORT: 3306
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
