@@ -39,4 +39,3 @@ jobs:
         run: |        
           echo "MONGODB_USERNAME: ${{ (env.MONGODB_USERNAME) }}"
           echo "MANGODB_DB_NAME: ${{ env.MANGODB_DB_NAME }}"
-          
