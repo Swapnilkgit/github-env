@@ -9,9 +9,9 @@ env:
 jobs:
   test:
     env:
-      MONGODB_CLUSTER_ADDRESS: github-action.utozkzh.mongodb.net
-      MONGODB_USERNAME: swapnilk2909_db_user
-      MONGODB_PASSWORD: aq8zLjf8y9BwVCW8
+      MONGODB_CLUSTER_ADDRESS: test-mdb.2rckmga.mongodb.net
+      MONGODB_USERNAME: ${{ (secrets.DB_USERNAME) }}
+      MONGODB_PASSWORD: $ {{ (secrets.DB_PASSWORD) }}
       PORT: 3000
     runs-on: ubuntu-latest
     steps:
